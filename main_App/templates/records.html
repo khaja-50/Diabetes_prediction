@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block base %} {# Changed 'base' to 'content' to match Bootstrap structure #}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/bootstrap-icons.min.js"></script>
+{%load static%}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col col-sm-3 col-xs-12">
+                            <h4 class="title">Record <span>List</span></h4>
+                        </div>
+                        <div class="col-sm-9 col-xs-12 text-left">
+                            <div class="btn_group form-group">
+                                <form method="get" class="form-inline">
+                                <input type="text" class="form-control" name="query" placeholder="Search">
+                                <button class="btn btn-default"  type="submit" ><i class="fa fa-search" ></i></button> 
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body table-responsive border">
+
+                    {% if divisions %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>SO</th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Son/Daughter</th>
+                                <th>Address</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Pregnancies</th>
+                                <th>Glucose</th>
+                                <th>BloodPressure</th>
+                                <th>SkinThickness</th>
+                                <th>Insulin</th>
+                                <th>BMI</th>
+                                <th>DiabetesPedigreeFunction</th>
+                                <th>Result</th>
+
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            {% for item in divisions %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{item.id}}</td>
+                                <td>{{item.name}}</td>
+                                <td>{{item.so}}</td>
+                                <td>{{item.address}}</td>
+                                <td>{{item.Age}}</td>
+                                <td>{{item.gender}}</td> 
+                                <td>{{item.Pregnancies}}</td>
+                                <td>{{item.Glucose}}</td>
+                                <td>{{item.BloodPressure}}</td>
+                                <td>{{item.SkinThickness}}</td>
+                                <td>{{item.Insulin}}</td>
+                                <td>{{item.BMI}}</td> 
+                                <td>{{item.DiabetesPedigreeFunction}}</td>
+                                <td>
+                                    {%if item.Outcome == 1 %}
+                                    Diabetes is Predicted 
+
+                                    {%else%}
+                                    Diabetes is not Predicted 
+
+                                    {%endif%}
+
+                                </td>
+                                <td>
+                                    <ul class="action-list">
+                                        <li class=" w-50 p-1" ><a href="{%url 'edit' id=item.id %}" data-tip="edit"><i class="fa fa-edit"></i></a></li>
+                                        <li  class="w-50 p-1" ><a href="{%url 'delete' id=item.id %}" data-tip="delete"><i class="fa fa-trash"></i></a></li>
+                                        <li  class="w-50 p-1" ><a href="{%url 'pdfreport' id=item.id %}" data-tip="download Report"><i class="fa fa-download"></i></a></li>
+                                    </ul>
+                                </td>
+                            </tr> 
+                            {% endfor %}                         
+                        </tbody>
+                    </table>
+                    {%else%}
+                    <div class="alert alert-danger text-center" role="alert">
+                      NO Record 
+                    </div>
+                    {% endif %}
+                </div>
+               {%include 'pagenation.html'%} 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="{%url 'home'%}"><span class="blink btn-danger rounded">Smart </span>Diabetes Prediction</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{%url 'report'%} "><i class="far fa-file-alt"></i> Generate Report</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'records'%}"><i class="far fa-list-alt"></i> Records</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:{%url 'records'%};"><i class="far fa-chart-pie"></i> Statistics</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'about'%}"><i class="far fa-info-circle"></i> About</a>
+            </li>
+        </ul>
+    </div>
+</nav>

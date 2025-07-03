@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block base %}
+ <!-- ======= Hero Section ======= -->
+ {% load static %}
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <style>
+    /* CSS styles for text effects */
+    .text-effects {
+        background-color: #c9ac1a; /* Background color */
+        color: #fff; /* Text color */
+        padding: 20px; /* Padding to give some space around the text */
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Box shadow for a raised effect */
+    }
+ </style>
+ <div class="container-fluid mx-auto justify-content-center">
+    <video controls class="rounded mx-auto d-block" style="width: 800px; height: 450px;">
+        <source src="{% static 'video/video.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <p class="text-effects text-center py-3 rounded ">
+        Diabetes is a widespread and complex metabolic disorder characterized by high levels of glucose (blood sugar) in the body. With the advancements in machine learning and data analysis, the field of healthcare has seen remarkable transformations in the way diabetes is understood, diagnosed, and managed.
+
+        Machine learning plays a pivotal role in diabetes care by enabling predictive modeling, risk assessment, and personalized treatment strategies. Through the analysis of vast datasets containing patient information, machine learning algorithms can predict the risk of diabetes, helping both healthcare providers and patients take preventive measures. These algorithms consider factors such as age, family history, lifestyle choices, and specific biomarkers like glucose levels, insulin resistance, and body mass index.
+        
+        One of the most significant applications of machine learning in diabetes management is predictive modeling. These models can forecast a patient's future health status and provide early warnings of potential complications related to diabetes, such as cardiovascular diseases, kidney problems, or retinopathy. With such insights, healthcare professionals can tailor treatments and interventions to the individual patient, optimizing the effectiveness of care.
+    </p>
+ </div>
+   
+{% endblock %}
