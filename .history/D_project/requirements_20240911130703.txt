@@ -1,0 +1,6 @@
+django
+xhtml2pdf
+numpy
+pandas
+scikit-learn
+matplotlib

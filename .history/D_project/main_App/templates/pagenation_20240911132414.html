@@ -1,0 +1,43 @@
+{% if divisions.has_previous or divisions.has_next %}
+<div class="panel-footer">
+    <div class="row">
+        <div class="col col-sm-6 col-xs-6">Showing <b>{{ divisions.start_index }} - {{ divisions.end_index }}</b> out of <b>{{ divisions.paginator.count }}</b> entries</div>
+        <div class="col-sm-6 col-xs-6">
+            <ul class="pagination ">
+              
+        {% if divisions.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1" aria-label="First">
+                <span aria-hidden="true">First</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ divisions.previous_page_number }}" aria-label="Previous">
+                <span aria-hidden="true">Previous</span>
+            </a>
+        </li>
+        {% endif %}
+
+        {% for x in divisions.paginator.page_range %}
+        <li class="page-item {% if x == divisions.number %}active{% endif %}">
+            <a class="page-link" href="?page={{ x }}">{{ x }}</a>
+        </li>
+        {% endfor %}
+
+        {% if divisions.has_next %}
+        <li class="page-item sp">
+            <a class="page-link" href="?page={{ divisions.paginator.next_page_number }}" aria-label="Next">
+                <span aria-hidden="true">Next</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ divisions.paginator.num_pages }}" aria-label="Last">
+                <span aria-hidden="true">Last</span>
+            </a>
+        </li>
+        {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endif %}
